@@ -1,0 +1,22 @@
+{
+  "product": [
+    {
+      "id": 1,
+      "name": "Phones Sale",
+      "img": "/hangingLamp.png",
+      "discount": 30
+    },
+    {
+      "id": 2, 
+      "name": "Electronics Sale",
+      "img": "./clock.png",
+      "discount": 70
+    },
+    {
+      "id": 1,
+      "name": "Furniture Sale",
+      "img": "./lamp.png",
+      "discount":30
+    }
+  ]
+}

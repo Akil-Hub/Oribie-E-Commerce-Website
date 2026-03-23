@@ -8,22 +8,17 @@ import Testimonials from "../components/Testimonials";
 import BlogSection from "../components/BlogSection";
 import Hero from "../components/Hero";
 import HeroSlider from "../components/HeroSlider";
+import SaleSection from "../components/SaleSection";
 
 const Home = () => {
   return (
     <>
-     <section className="flex flex-col ">
-       {<HeroSlider/>
+     <section className=" ">
+       <HeroSlider/>
+       <SaleSection/>
+                
 
-      // <GridSection />
-      // <Services />
-      // <WhyChoseUs />
-      // <Showcase />
-      // <ProductCard/>
-      // <OurTeam />
-      // <Testimonials />
-        // <BlogSection /> */} 
-       }
+       
      </section>
     </>
   );
