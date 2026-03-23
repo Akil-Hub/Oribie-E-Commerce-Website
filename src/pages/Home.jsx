@@ -7,21 +7,23 @@ import OurTeam from "../components/OurTeam";
 import Testimonials from "../components/Testimonials";
 import BlogSection from "../components/BlogSection";
 import Hero from "../components/Hero";
+import HeroSlider from "../components/HeroSlider";
 
 const Home = () => {
   return (
     <>
      <section className="flex flex-col ">
-       {/* <Hero />
+       {<HeroSlider/>
 
-      <GridSection />
-      <Services />
-      <WhyChoseUs />
-      <Showcase />
-      <ProductCard/>
-      <OurTeam />
-      <Testimonials />
-      <BlogSection /> */}
+      // <GridSection />
+      // <Services />
+      // <WhyChoseUs />
+      // <Showcase />
+      // <ProductCard/>
+      // <OurTeam />
+      // <Testimonials />
+        // <BlogSection /> */} 
+       }
      </section>
     </>
   );

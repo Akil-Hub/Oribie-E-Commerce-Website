@@ -1,5 +1,5 @@
 import Image from "./common/Image";
-import logo from "../assets/logo.png";
+import logo from "/logo.png";
 import { Link } from "react-router-dom";
 import { MdPeopleAlt } from "react-icons/md";
 import { FaCartArrowDown } from "react-icons/fa";
@@ -32,7 +32,7 @@ const Navbar = () => {
           </li>
         </ul>
       </header>
-     <section className="bg-gray-100 ">
+     <section className="bg-secondary ">
        <header className="wrapper flex justify-between items-center  ">
         <div className="flex gap-3 items-center ">
           <HiBars3CenterLeft className="text-2xl" />

@@ -3,7 +3,7 @@
 const Button = ({ title, className,onClick }) => {
   return (
     <button
-      className={`px-4 h-11 rounded-md text-xl font-semibold cursor-pointer  active:scale-95 duration-200 bg-primary text-white border-primary border-2 ${className}`}
+      className={`px-6 h-11 text-xs  font-semibold cursor-pointer  active:scale-95 duration-200 bg-btn text-white  ${className}`}
       onClick={onClick}
     >
       {title}

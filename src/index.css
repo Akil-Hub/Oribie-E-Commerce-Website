@@ -3,8 +3,9 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #d6a033;
-  --color-secondary: #181d21;
+  --color-primary: #979797;
+  --color-secondary: #F5F5F3;
+  --color-btn: #262626;
 
   --font-display: "DM Sans", sans-serif;
 }
@@ -12,12 +13,27 @@
   .wrapper {
     @apply max-w-330 mx-auto px-3 md:px-6 lg:px-8 py-3;
   }
+  .heading{
+    @apply text-[#262626]
+  }
+  
 }
 @layer base {
   p {
-    @apply text-gray-400;
+    @apply text-[#767676];
   }
   body {
     @apply font-display;
   }
+}
+
+@layer components {
+  .swiper-button-next,
+  .swiper-button-prev {
+    @apply text-white! bg-primary p-3 rounded-full mx-5! ;
+    width: 48px !important; 
+    height: 48px !important; 
+  }
+
+
 }
