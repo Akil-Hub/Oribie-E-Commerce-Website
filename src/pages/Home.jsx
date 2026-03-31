@@ -9,6 +9,7 @@ import BlogSection from "../components/BlogSection";
 import Hero from "../components/Hero";
 import HeroSlider from "../components/HeroSlider";
 import SaleSection from "../components/SaleSection";
+import DemoCounter from "../components/DemoCounter";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
      <section className=" ">
        <HeroSlider/>
        <SaleSection/>
+       <DemoCounter/>
                 
 
        
