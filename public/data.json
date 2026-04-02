@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "Classic White T-Shirt",
+    "price": 15.99,
+    "category": "Clothing",
+    "badge": "new",
+    "image": "/products/teaPot.png"
+  },
+  {
+    "id": 2,
+    "name": "Wireless Headphones",
+    "price": 59.99,
+    "category": "Electronics",
+    "badge": "-20%",
+    "image": "/products/watch.png"
+  },
+  {
+    "id": 3,
+    "name": "Leather Wallet",
+    "price": 25.5,
+    "category": "Accessories",
+    "badge": "",
+    "image": "/products/basket.png"
+  },
+  {
+    "id": 4,
+    "name": "Running Shoes",
+    "price": 89.99,
+    "category": "Footwear",
+    "badge": "-30%",
+    "image": "/products/birdBag.png" 
+  },
+  {
+    "id": 4,
+    "name": "Running Shoes",
+    "price": 89.99,
+    "category": "Footwear",
+    "badge": "-30%",
+    "image": "/products/bag.png" 
+  },
+  {
+    "id": 4,
+    "name": "Running Shoes",
+    "price": 89.99,
+    "category": "Footwear",
+    "badge": "-30%",
+    "image": "/products/bowl.png" 
+  },
+  {
+    "id": 4,
+    "name": "Running Shoes",
+    "price": 89.99,
+    "category": "Footwear",
+    "badge": "-30%",
+    "image": "/products/blackBag.png" 
+  },
+  {
+    "id": 4,
+    "name": "Running Shoes",
+    "price": 89.99,
+    "category": "Footwear",
+    "badge": "-30%",
+    "image": "/products/birdBag.png" 
+  },
+  {
+    "id": 5,
+    "name": "Smart Watch",
+    "price": 120.0,
+    "category": "Electronics",
+    "badge": "new",
+    "image": "/products/tallPot.png"
+  }
+]

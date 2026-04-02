@@ -1,23 +1,41 @@
-import GridSection from "../components/GridSection";
-import Services from "../components/OurServices";
-import WhyChoseUs from "../components/WhyChoseUs";
-import Showcase from "../components/Showcase";
-import ProductCard from "../components/ProductCard";
-import OurTeam from "../components/OurTeam";
-import Testimonials from "../components/Testimonials";
-import BlogSection from "../components/BlogSection";
-import Hero from "../components/Hero";
+
 import HeroSlider from "../components/HeroSlider";
 import SaleSection from "../components/SaleSection";
-import DemoCounter from "../components/DemoCounter";
+import Policy from "../components/Policy";
+import NewArivals from "../components/NewArivals";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import BestSellerProducts from "../components/BestSellerProducts";
+import PhoneOfYear from "../components/PhoneOfYear";
+import SpecialOffers from "../components/SpecialOffers";
 
 const Home = () => {
+
+  
+  const [products, setProducts] = useState([])
+    useEffect(() => {
+      
+        const getData =  async() => {
+
+            const data = await axios.get('https://dummyjson.com/products')
+            setProducts(data.data.products)
+            
+        };
+    getData()
+    
+    }, [])
+    
   return (
     <>
      <section className=" ">
        <HeroSlider/>
+       <Policy/>
        <SaleSection/>
-       <DemoCounter/>
+       <NewArivals products={products}/>
+       <BestSellerProducts products={products}/>
+       <PhoneOfYear/>
+       <SpecialOffers products={products}/>
+
                 
 
        

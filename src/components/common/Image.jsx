@@ -1,8 +1,8 @@
 
 
-const Image = ({imgSrc,altSrc,className}) => {
+const Image = ({src,alt,className}) => {
   return (
-    <img src={imgSrc} alt={altSrc} className={`bg-cover bg-center bg-no-repeat h-fit w-fit ${className}`} />
+    <img src={src} alt={alt} className={`bg-cover bg-center bg-no-repeat h-fit w-fit  ${className}`} />
   )
 }
 

@@ -12,9 +12,9 @@ const Navbar = () => {
 
   return (
     <nav className="sticky">
-      <header className="wrapper flex justify-between items-center py-8 ">
+      <header className="wrapper flex justify-between items-center py-6 ">
         <Link className="w-[40%]" to={"/"}>
-          <Image imgSrc={logo} altSrc={logo} />
+          <Image src={logo} alt={logo} />
         </Link>
 
         <ul className="w-[60%] flex gap-5 items-center font-semibold text-xl text-gray-400">

@@ -1,79 +1,104 @@
+import { FaFacebook, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import Image from "./common/Image";
 import logo from "/logo.png";
 
 const Footer = () => {
   return (
     <footer className="bg-secondary h-full">
-      {/* <section
-        className="grid wrapper grid-cols-1
-     md:grid-cols-[2fr_1fr_1fr_1fr] pt-20 gap-15"
+      <section
+        className="grid wrapper grid-cols-1 sm:grid-cols-2
+     md:grid-cols-[1fr_1fr_1fr_2fr_1fr] pt-20 gap-15 "
       >
-        <div className="description">
-          <Image imgSrc={logo} className={"h-15! w-30!"} />
+  
 
-          <p className="py-5">
-            Install any demo or template with a single ch6ck. You can mix and
-            match all the demos & templates. Every demo can be turned into one
-            or multi-page.
-          </p>
-        </div>
+        <div className="menuItems text-gray-600 space-y-3">
+          <h4 className="font-bold text-btn text-2xl pb-2">MENU</h4>
 
-        <div className="menuItems ">
-          <h4 className="font-bold text-gray-200 text-2xl pb-8">Features</h4>
-
-          <h6 className="text-gray-300 py-3">
+          <h6>
             <a href="#"></a>Home
           </h6>
-          <h6 className="text-gray-300 py-3">
-            <a href="#"></a>About
+          <h6 
+          >
+            <a href="#"></a>Shop
+          </h6> 
+          <h6 >
+            <a href="#"></a>About{" "}
           </h6>
-          <h6 className="text-gray-300 py-3">
-            <a href="#"></a>Benefit{" "}
+          <h6 >
+            <a href="#"></a>Contact
           </h6>
-          <h6 className="text-gray-300 py-3">
-            <a href="#"></a>Pricing
+          <h6 >
+            <a href="#"></a>Journal
           </h6>
-          <h6 className="text-gray-300 py-3">
-            <a href="#"></a>Blog
+        </div>
+        <div className="menuItems text-gray-600 space-y-3">
+          <h4 className="font-bold text-btn text-2xl pb-2">SHOP</h4>
+
+          <h6>
+            <a href="#"></a>Category 1
+          </h6>
+          <h6 
+          >
+            <a href="#"></a>Category 2
+          </h6>
+          <h6 >
+            <a href="#"></a>Category 3{" "}
+          </h6>
+          <h6 >
+            <a href="#"></a>Category 4
+          </h6>
+          <h6 >
+            <a href="#"></a>Category 5
+          </h6>
+        </div>
+        <div className="menuItems text-gray-600 space-y-3 w-40">
+          <h4 className="font-bold text-btn text-2xl pb-2">HELP</h4>
+
+          <h6>
+            <a href="#"></a>Privacy Policy
+          </h6>
+          <h6 
+          >
+            <a href="#"></a>Terns & Conditions
+          </h6>
+          <h6 >
+            <a href="#"></a>Special E-Shop{" "}
+          </h6>
+          <h6 >
+            <a href="#"></a>Shipping
+          </h6>
+          <h6 >
+            <a href="#"></a>Secure Payments
           </h6>
         </div>
 
-        <div className="menuItems ">
-          <h4 className="font-bold text-gray-200 text-2xl pb-8">Products</h4>
+    
+     <div className="Address">
+      <h4 className="text-lg font-semibold">(052) 611-5711</h4>
+      <h6 className="text-lg font-semibold">company@domain.com</h6>
+          <p className="py-3">
+          575 Crescent Ave. Quakertown, PA 18951
+          </p>
+        </div>
+        
 
-          <h6 className="text-gray-300 py-3">
-            <a href="#"></a>Task Management
-          </h6>
-          <h6 className="text-gray-300 py-3">
-            <a href="#"></a>Company Growth
-          </h6>
-          <h6 className="text-gray-300 py-3">
-            <a href="#"></a>Time Tracking{" "}
-          </h6>
+         <div className="logo">
+          <Image src={logo} className="w-20!"/>
+         
         </div>
 
-        <div className="menuItems ">
-          <h4 className="font-bold text-gray-200 text-2xl pb-8">Support</h4>
-
-          <h6 className="text-gray-300 py-3">
-            <a href="#"></a>Customer Services{" "}
-          </h6>
-          <h6 className="text-gray-300 py-3">
-            <a href="#"></a>Accessibility
-          </h6>
-          <h6 className="text-gray-300 py-3">
-            <a href="#"></a>Contact Us{" "}
-          </h6>
-        </div>
+      
       </section>
 
-      <section className="flex justify-between items-center text-gray-300  pb-10 wrapper">
-        <p>@ 2026 Innovate.All rights reserved.</p>
-        <div className="flex">
-          <p>Privacy Policy</p>
-          <p>Terms & Condition</p>
+      <section className="flex justify-between items-center text-btn pb-10 wrapper">
+        <div className="flex gap-4">
+          <FaFacebook/>
+          <FaLinkedinIn/> 
+          <FaInstagram/>
         </div>
-      </section> */}
+        <p>@ 2026 Orebi Minimal eCommerce Figma Template by Adveits.</p>
+
+      </section>
     </footer>
   );
 };
