@@ -15,18 +15,6 @@ const NewArivals = ({products}) => {
 
       <h1 className='color-btn text-3xl py-4 text-left'>New Arrivals</h1>
 
-      {/* <article className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full items-center justify-items-stretch '>
-
-        {
-          products.map((product )=>{
-            return <SlideProductCard key={product.id} {...product}/>
-          })
-        }
-
-
-
-      </article> */}
-
         <Swiper
         modules={[Pagination, Autoplay,Navigation]}
           navigation={{

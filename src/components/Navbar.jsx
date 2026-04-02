@@ -22,7 +22,7 @@ const Navbar = () => {
             <Link to={"/"}>Home</Link>
           </li>
           <li className={`${commonMenuClass}`}>
-            <Link to={"/about"}>Shop</Link>
+            <Link to={"/shop"}>Shop</Link>
           </li>
           <li className={`${commonMenuClass}`}>
             <Link to={"/services"}>About</Link>
