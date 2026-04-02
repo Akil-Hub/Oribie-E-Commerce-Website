@@ -17,7 +17,7 @@ const Navbar = () => {
           <Image src={logo} alt={logo} />
         </Link>
 
-        <ul className="w-[60%] flex gap-5 items-center font-semibold text-xl text-gray-400">
+        <ul className="w-[60%] flex gap-5 items-center  text-xl text-gray-400">
           <li className={`${commonMenuClass}`}>
             <Link to={"/"}>Home</Link>
           </li>
