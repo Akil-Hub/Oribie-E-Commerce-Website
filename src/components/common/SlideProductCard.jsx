@@ -15,12 +15,11 @@ const SlideProductCard = ({
   brand,
 }) => {
   const navigate = useNavigate()
-  const params = useParams()
 
   return (
     <div 
-    onClick={()=>navigate(`products/${params.id}`)}
-      className="w-full h-80  shadow overflow-hidden relative hover:shadow-lg hover:scale-[1.02]  transition-all duration-300  
+    onClick={()=>navigate(`products/${id}`)}
+      className="w-full h-80 cursor-pointer active:scale-95 shadow overflow-hidden relative hover:shadow-lg hover:scale-[1.02]  transition-all duration-300  
     group"
     >
       {/*  Discount Badge */}

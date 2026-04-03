@@ -6,10 +6,9 @@ import React from "react";
 const Aside = () => {
   const { products } = useDataContext();
 
-  const { setSelectedCategory,setPriceRange } = useFilterContext();
+  const { setSelectedCategory,setPriceRange,categories,brands } = useFilterContext();
 
-  const categories = [...new Set(products.map((p) => p.category))];
-  const brands = [...new Set(products.map((p) => p.brand))];
+
 
   const handleChange = (category) => {
     setSelectedCategory(category);

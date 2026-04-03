@@ -1,8 +1,8 @@
 import { useFilterContext } from "@/components/contexts/filterContext";
 import { useState } from "react";
+import { useLoaderData } from "react-router-dom";
 
-const SingleProduct = ({ product }) => {
-
+const SingleProduct = () => {
   const [size, setSize] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [review, setReview] = useState({
@@ -10,6 +10,7 @@ const SingleProduct = ({ product }) => {
     email: "",
     message: "",
   });
+const product = useLoaderData().data
 
   if (!product) return <p>Loading...</p>;
 

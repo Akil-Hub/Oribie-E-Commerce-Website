@@ -9,9 +9,17 @@ import Image from "@/components/common/Image";
 import { useFilterContext } from "@/components/contexts/filterContext";
 
 const Navbar = () => {
-  const { query, setQuery } = useFilterContext();
+ 
+  const { query,setSelectedCategory,selectedCategory, setQuery,finalFilteredProducts,categories,setIsCategorySelected } = useFilterContext();
+
   const handleInputChange = (e) => {
     setQuery(e.target.value);
+  };
+
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category)
+    setIsCategorySelected(true)
+    
   };
   const navLinkClass = ({ isActive }) =>
     `hover:font-bold hover:text-gray-900 duration-300  active:scale-90 ${isActive ? "text-btn font-bold" : "text-primary"}`;
@@ -46,15 +54,33 @@ const Navbar = () => {
           </li>
         </ul>
       </header>
-      <section className="bg-secondary ">
-        <header className="wrapper flex justify-between items-center  ">
-          <div className="flex gap-3 items-center ">
-            <HiBars3CenterLeft className="text-2xl" />
+      <section className="bg-secondary border-y-3 border-gray-200 ">
+        <header className="wrapper flex justify-between items-center 0   ">
+       
+          <button
+            className="  "
+            popoverTarget="popover-1"
+            style={{ anchorName: "--anchor-1" }}
+          >
+          <div  className="flex gap-3 items-center">
+              <HiBars3CenterLeft className="text-2xl" />
 
             <Link className="" to={"/"}>
               <h3>Shop by Category</h3>
             </Link>
           </div>
+          </button>
+
+          <ul
+            className="dropdown  pt-10 menu w-52 rounded-box bg-btn text-white shadow-sm"
+            popover="auto"
+            id="popover-1"
+            style={
+              { positionAnchor: "--anchor-1" } /* as React.CSSProperties */
+            }
+          >
+            {categories.map(c=><li  onClick={() => handleCategoryChange(c)} className="py-1 text-lg uppercase cursor-pointer">{c}</li>)}
+          </ul>
 
           <div className="flex justify-between items-center px-3 py-2 bg-white rounded-md w-120">
             <input

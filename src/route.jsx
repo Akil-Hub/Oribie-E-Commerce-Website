@@ -28,13 +28,23 @@ export const router = createBrowserRouter([
 
       },
       {
-        path: "products/:productId",
+        path: "shop/products/:productId",
+        loader:async({params})=>await axios.get(`https://dummyjson.com/products/${params.productId}`),
         element: <SingleProduct />,
+
+      },
+    
+      {
+        path: "products/:productId",
+        loader:async({params})=>await axios.get(`https://dummyjson.com/products/${params.productId}`),
+        element: <SingleProduct />,
+
 
       },
     
     
     ],
+
     
   },
 ]);

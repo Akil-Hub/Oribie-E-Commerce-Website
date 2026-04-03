@@ -9,6 +9,7 @@ export const FilterProvider  = ({children}) => {
     const{products} = useDataContext()
 
     const [query, setQuery] = useState('')
+      const [isCategorySelected, setIsCategorySelected] = useState(false)
     const [selectedCategory, setSelectedCategory] = useState(null)
 
     const [priceRange, setPriceRange] = useState(null)
@@ -45,8 +46,11 @@ export const FilterProvider  = ({children}) => {
     };
 
     const finalFilteredProducts = search()
+
+      const categories = [...new Set(products.map((p) => p.category))];
+  const brands = [...new Set(products.map((p) => p.brand))];
     return(
-        <FilterContext.Provider value={{query,setQuery,finalFilteredProducts,selectedCategory,setSelectedCategory,setPriceRange}}>
+        <FilterContext.Provider value={{query,setQuery,finalFilteredProducts,categories,brands,setSelectedCategory,setPriceRange,isCategorySelected,setIsCategorySelected}}>
             {children}
         </FilterContext.Provider>
     )

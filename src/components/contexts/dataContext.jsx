@@ -8,7 +8,7 @@ export const DataProvider = ({ children }) => {
 
   useEffect(() => {
     const getDaa = async () => {
-      const res = await axios.get("https://dummyjson.com/products");
+      const res = await axios.get("https://dummyjson.com/products?limit=40");
       setProducts(res.data.products)
     };
 
