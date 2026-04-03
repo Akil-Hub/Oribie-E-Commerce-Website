@@ -1,4 +1,5 @@
-import Heading from "./common/Heading";
+import Heading from "@/components/common/Heading";
+
 
 const OurServices = () => {
   return (

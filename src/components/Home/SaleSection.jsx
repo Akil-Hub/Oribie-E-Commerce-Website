@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Button from "./common/Button";
+import Button from "@/components/common/Button";
 const SaleSection = () => {
   const [saleData, setSaleData] = useState([]);
 

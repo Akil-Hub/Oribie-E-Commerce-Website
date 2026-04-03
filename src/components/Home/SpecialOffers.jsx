@@ -1,15 +1,19 @@
-import SlideProductCard from "./common/SlideProductCard";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay, Navigation } from "swiper/modules";
 
 import "swiper/css";
 
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
-const SpecialOffers = ({ products }) => {
+import SlideProductCard from "@/components/common/SlideProductCard";
+import { useDataContext } from "@/components/contexts/dataContext";
+const SpecialOffers = () => {
+  const {products} = useDataContext()
+
   return (
     <>
       <section className="wrapper">
-        <h1 className="color-btn text-3xl py-4 text-left ">Our Bestsellers</h1>
+        <h1 className="color-btn text-3xl py-4 text-left ">Special Offers</h1>
 
         <Swiper
           modules={[Pagination, Autoplay, Navigation]}

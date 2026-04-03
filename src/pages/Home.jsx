@@ -1,34 +1,31 @@
-
-import HeroSlider from "../components/HeroSlider";
-import SaleSection from "../components/SaleSection";
-import Policy from "../components/Policy";
-import NewArivals from "../components/NewArivals";
-
-import BestSellerProducts from "../components/BestSellerProducts";
-import PhoneOfYear from "../components/PhoneOfYear";
-import SpecialOffers from "../components/SpecialOffers";
+import SpecialOffers from "@/components/Home/SpecialOffers";
 import { useLoaderData } from "react-router-dom";
+import PhoneOfYear from "@/components/Home/PhoneOfYear";
+import BestSellerProducts from "@/components/Home/BestSellerProducts";
+import HeroSlider from "@/components/Home/HeroSlider";
+import Policy from "@/components/Home/Policy";
+import SaleSection from "@/components/Home/SaleSection";
+import NewArivals from "@/components/Home/NewArivals";
+import SingleProduct from "@/components/common/SingleProduct";
 
 const Home = () => {
 
-  const products = useLoaderData()
+
+  
 
 
   return (
     <>
-     <section className=" ">
-       <HeroSlider/>
-       <Policy/>
-       <SaleSection/>
-       <NewArivals products={products}/>
-       <BestSellerProducts products={products}/>
-       <PhoneOfYear/>
-       <SpecialOffers products={products}/>
-
-                
-
-       
-     </section>
+      <section className=" ">
+        <HeroSlider />
+        <Policy />
+        <SaleSection />
+        <NewArivals />
+        <BestSellerProducts  />
+        <PhoneOfYear />
+        <SpecialOffers  />
+        <SingleProduct/>
+      </section>
     </>
   );
 };

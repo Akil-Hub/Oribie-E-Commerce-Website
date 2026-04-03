@@ -1,0 +1,79 @@
+import logo from "/logo.png";
+import { Link, NavLink } from "react-router-dom";
+import { MdPeopleAlt } from "react-icons/md";
+import { FaCartArrowDown } from "react-icons/fa";
+
+import { HiBars3CenterLeft } from "react-icons/hi2";
+import { CiSearch } from "react-icons/ci";
+import Image from "@/components/common/Image";
+import { useFilterContext } from "@/components/contexts/filterContext";
+
+const Navbar = () => {
+  const { query, setQuery } = useFilterContext();
+  const handleInputChange = (e) => {
+    setQuery(e.target.value);
+  };
+  const navLinkClass = ({ isActive }) =>
+    `hover:font-bold hover:text-gray-900 duration-300  active:scale-90 ${isActive ? "text-btn font-bold" : "text-primary"}`;
+
+  return (
+    <nav className="sticky">
+      <header className="wrapper flex justify-between items-center py-6 ">
+        <NavLink className="w-[40%]" to={"/"}>
+          <Image src={logo} alt={logo} />
+        </NavLink>
+
+        <ul className="w-[60%] flex gap-5 items-center  text-xl text-gray-400">
+          <li>
+            <NavLink className={navLinkClass} to={"/"}>
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className={navLinkClass} to={"/shop"}>
+              Shop
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className={navLinkClass} to={"/services"}>
+              About
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className={navLinkClass} to={"/contact"}>
+              Contacts{" "}
+            </NavLink>
+          </li>
+        </ul>
+      </header>
+      <section className="bg-secondary ">
+        <header className="wrapper flex justify-between items-center  ">
+          <div className="flex gap-3 items-center ">
+            <HiBars3CenterLeft className="text-2xl" />
+
+            <Link className="" to={"/"}>
+              <h3>Shop by Category</h3>
+            </Link>
+          </div>
+
+          <div className="flex justify-between items-center px-3 py-2 bg-white rounded-md w-120">
+            <input
+              className="px-3 py-2 focus:outline-none"
+              placeholder="Search For Products..."
+              value={query}
+              onChange={handleInputChange}
+            />
+            <CiSearch className="text-3xl" />
+          </div>
+
+          <div className="flex gap-5 items-center">
+            <MdPeopleAlt className="text-2xl" />
+            <FaCartArrowDown className="text-2xl" />
+          </div>
+        </header>
+      </section>
+    </nav>
+  );
+};
+
+export default Navbar;

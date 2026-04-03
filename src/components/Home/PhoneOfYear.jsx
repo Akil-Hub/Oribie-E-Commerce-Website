@@ -1,7 +1,7 @@
 import React from 'react'
-import Image from './common/Image'
-import phoneClock from '../assets/phoneClock.png'
-import Button from './common/Button'
+import phoneClock from '@/assets/phoneClock.png'
+import Image from '@/components/common/Image'
+import Button from '@/components/common/Button'
 const PhoneOfYear = () => {
   return (
     <div className='wrapper py-5'>

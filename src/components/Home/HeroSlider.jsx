@@ -4,9 +4,10 @@ import { Pagination, Autoplay, Navigation } from "swiper/modules";
 
 import "swiper/css";
 
-import Hero from "./Hero";
-import slide1 from "../assets/headphone.png";
+// import Hero from "./Hero";
+import slide1 from "@/assets/headphone.png";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import Hero from "@/components/Home/Hero";
 
 const HeroSlider = () => {
   const [activeIndex, setActiveIndex] = useState(0);

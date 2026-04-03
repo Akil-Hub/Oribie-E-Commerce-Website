@@ -1,8 +1,9 @@
 import React from "react";
-import Image from "./Image";
 import { FaCircle, FaHeart, FaShippingFast } from "react-icons/fa";
 import { MdLocalShipping } from "react-icons/md";
 import { FaRotate } from "react-icons/fa6";
+import Image from "@/components/common/Image";
+import { useNavigate, useParams } from "react-router-dom";
 
 const SlideProductCard = ({
   id,
@@ -13,12 +14,16 @@ const SlideProductCard = ({
   discountPercentage,
   brand,
 }) => {
+  const navigate = useNavigate()
+  const params = useParams()
+
   return (
-    <div
+    <div 
+    onClick={()=>navigate(`products/${params.id}`)}
       className="w-full h-80  shadow overflow-hidden relative hover:shadow-lg hover:scale-[1.02]  transition-all duration-300  
     group"
     >
-      {/* 🔥 Discount Badge */}
+      {/*  Discount Badge */}
       {discountPercentage > 0 && (
         <span className="absolute top-3 left-3 bg-btn text-white text-xs px-2 py-1 rounded-md">
           -{discountPercentage}%

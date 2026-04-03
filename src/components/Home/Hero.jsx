@@ -1,5 +1,5 @@
+import Button from '@/components/common/Button'
 import React from 'react'
-import Button from './common/Button'
 
 const Hero = ({ image, title, discount }) => {
   return (

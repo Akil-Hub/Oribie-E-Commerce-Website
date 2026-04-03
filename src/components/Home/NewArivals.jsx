@@ -1,5 +1,5 @@
 
-import SlideProductCard from './common/SlideProductCard';
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay, Navigation } from "swiper/modules";
 
@@ -7,8 +7,14 @@ import "swiper/css";
 
 
 import {  FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
-const NewArivals = ({products}) => {
+import SlideProductCard from "@/components/common/SlideProductCard";
+import { useDataContext } from "@/components/contexts/dataContext";
+const NewArivals = () => {
 
+  const {products} = useDataContext()
+console.log(products)
+  const filteredProducts =products.filter(({price})=>price < 20)
+  console.log(filteredProducts)
   return (
     <>
     <section className='wrapper'>
