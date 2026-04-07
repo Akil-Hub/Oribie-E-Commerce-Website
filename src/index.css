@@ -35,5 +35,9 @@
       font-family: "DM Sans", sans-serif;
 
   }
+
+}
+  dialog::backdrop {
+  display: none!important;
 }
 

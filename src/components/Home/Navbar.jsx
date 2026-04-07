@@ -1,5 +1,5 @@
 import logo from "/logo.png";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { MdPeopleAlt } from "react-icons/md";
 import { FaCartArrowDown } from "react-icons/fa";
 
@@ -11,6 +11,8 @@ import { useFilterContext } from "@/components/contexts/filterContext";
 const Navbar = () => {
  
   const { query,setSelectedCategory,selectedCategory, setQuery,finalFilteredProducts,categories,setIsCategorySelected } = useFilterContext();
+
+  const navigate = useNavigate()
 
   const handleInputChange = (e) => {
     setQuery(e.target.value);
@@ -59,8 +61,8 @@ const Navbar = () => {
        
           <button
             className="  "
-            popoverTarget="popover-1"
-            style={{ anchorName: "--anchor-1" }}
+            popoverTarget="category"
+            style={{ anchorName: "--anchor-category" }}
           >
           <div  className="flex gap-3 items-center">
               <HiBars3CenterLeft className="text-2xl" />
@@ -74,9 +76,9 @@ const Navbar = () => {
           <ul
             className="dropdown  pt-10 menu w-52 rounded-box bg-btn text-white shadow-sm"
             popover="auto"
-            id="popover-1"
+            id="category"
             style={
-              { positionAnchor: "--anchor-1" } /* as React.CSSProperties */
+              { positionAnchor: "--anchor-category" } /* as React.CSSProperties */
             }
           >
             {categories.map(c=><li  onClick={() => handleCategoryChange(c)} className="py-1 text-lg uppercase cursor-pointer">{c}</li>)}
@@ -93,9 +95,28 @@ const Navbar = () => {
           </div>
 
           <div className="flex gap-5 items-center">
+              <button
+            className="  "
+            popoverTarget="account"
+            style={{ anchorName: "--anchor-account" }}
+          >
+
             <MdPeopleAlt className="text-2xl" />
-            <FaCartArrowDown className="text-2xl" />
+          </button>
+            <FaCartArrowDown onClick={()=>navigate('cart')} className="text-2xl cursor-pointer active:scale-90 duration-300!" />
           </div>
+           <ul
+            className="dropdown  pt-10 menu w-52 rounded-box bg-btn text-white shadow-sm"
+            popover="auto"
+            id="account"
+            style={
+              { positionAnchor: "--anchor-account" } /* as React.CSSProperties */
+            }
+          >
+            <li onClick={()=>navigate('/signUp')} className="py-2 text-xl font-semibold cursor-pointer active:scale-90 duration-300 ">Sign Up</li>
+            <li onClick={()=>navigate('/login')}  className="py-2 text-xl font-semibold  cursor-pointer active:scale-90 duration-300">Sign In </li>
+          </ul>
+
         </header>
       </section>
     </nav>

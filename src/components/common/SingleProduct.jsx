@@ -1,8 +1,18 @@
 import { useFilterContext } from "@/components/contexts/filterContext";
+import { addToCart } from "@/store/cartSlice";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useLoaderData } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const SingleProduct = () => {
+
+  // geting cart data form the redux 
+  const dispatch = useDispatch()
+
+  const cart = useSelector((state )=>state.cart.cart)
+
+
   const [size, setSize] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [review, setReview] = useState({
@@ -13,6 +23,17 @@ const SingleProduct = () => {
 const product = useLoaderData().data
 
   if (!product) return <p>Loading...</p>;
+
+  // handle add to cart function
+
+  const handleAddToCart  = (product) => {
+    const isProductExist = cart.some(p=>p.id === product.id)
+    if(isProductExist) return toast.warning('Product is already exist in the cart.')
+    dispatch(addToCart(product))
+    toast.success('Product Added to cart successfully')
+  };
+  console.log(cart)
+
 
   return (
     <div className="max-w-6xl mx-auto p-6 space-y-8">
@@ -85,7 +106,7 @@ const product = useLoaderData().data
             <button className="bg-gray-800 text-white px-4 py-2 rounded">
               Add to Wishlist
             </button>
-            <button className="bg-blue-600 text-white px-4 py-2 rounded">
+            <button onClick={()=>handleAddToCart(product)} className="bg-blue-600 text-white px-4 py-2 rounded cursor-pointer active:scale-95 duration-300">
               Add to Cart
             </button>
           </div>

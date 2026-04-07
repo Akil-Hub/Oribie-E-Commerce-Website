@@ -4,13 +4,20 @@ import "@/index.css";
 import App from "@/App.jsx";
 import { DataProvider } from "@/components/contexts/dataContext";
 import { FilterProvider } from "@/components/contexts/filterContext";
+import { Provider } from "react-redux";
+import store from "@/store/store";
+import { ToastContainer } from "react-toastify";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <DataProvider>
+   <Provider store={store}>
+     <DataProvider>
       <FilterProvider>
         <App />
+                <ToastContainer />
+
       </FilterProvider>
     </DataProvider>
+   </Provider>
   </StrictMode>,
 );

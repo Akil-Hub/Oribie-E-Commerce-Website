@@ -6,6 +6,9 @@ import Home from "./pages/Home";
 
 import Shop from "@/pages/Shop";
 import SingleProduct from "@/components/common/SingleProduct";
+import CartPage from "@/pages/CartPage";
+import LoginPage from "@/pages/LoginPage";
+import SignUpPage from "@/pages/SignUpPage";
 
  
 
@@ -25,6 +28,21 @@ export const router = createBrowserRouter([
       {
         path: "shop",
         element: <Shop />,
+
+      },
+      {
+        path: "cart",
+        element: <CartPage />,
+
+      },
+      {
+        path: "login",
+        element: <LoginPage />,
+
+      },
+      {
+        path: "signUp",
+        element: <SignUpPage />,
 
       },
       {
