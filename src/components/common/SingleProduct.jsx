@@ -1,5 +1,5 @@
 import { useFilterContext } from "@/components/contexts/filterContext";
-import { addToCart } from "@/store/cartSlice";
+import { addToCart } from "@/features/cart/cartSlice";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLoaderData } from "react-router-dom";
@@ -10,7 +10,7 @@ const SingleProduct = () => {
   // geting cart data form the redux 
   const dispatch = useDispatch()
 
-  const cart = useSelector((state )=>state.cart.cart)
+  const cart = useSelector((state )=>state.cart.cartItems)
 
 
   const [size, setSize] = useState("");
@@ -29,10 +29,9 @@ const product = useLoaderData().data
   const handleAddToCart  = (product) => {
     const isProductExist = cart.some(p=>p.id === product.id)
     if(isProductExist) return toast.warning('Product is already exist in the cart.')
-    dispatch(addToCart(product))
+    dispatch(addToCart({...product,quantity}))
     toast.success('Product Added to cart successfully')
   };
-  console.log(cart)
 
 
   return (
@@ -82,14 +81,20 @@ const product = useLoaderData().data
           {/* 🔢 Quantity */}
           <div className="flex items-center gap-3">
             <button
-              onClick={() => setQuantity(q => Math.max(1, q - 1))}
+              onClick={() => {
+                setQuantity(q => Math.max(1, q - 1))
+                toast.success('Product Quantity is Decreased')
+              }}
               className="px-3 py-1 bg-gray-200 rounded"
             >
               -
             </button>
             <span>{quantity}</span>
             <button
-              onClick={() => setQuantity(q => q + 1)}
+              onClick={() => {
+                setQuantity(q => q + 1)
+                toast.success('Product Quantity in Increased')
+              }}
               className="px-3 py-1 bg-gray-200 rounded"
             >
               +

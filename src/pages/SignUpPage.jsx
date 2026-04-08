@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 
 import axios from "axios";
-// SIGN UP PAGE WITH LOCATION LOGIC
 const SignUpPage = () => {
     const [data, setData] = useState([])
     useEffect(() => {
