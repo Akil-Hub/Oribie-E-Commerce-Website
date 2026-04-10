@@ -1,11 +1,12 @@
 import SlideProductCard from '@/components/common/SlideProductCard'
-import { useDataContext } from '@/components/contexts/dataContext'
-import { useFilterContext } from '@/components/contexts/filterContext'
+
+
+import { useFilter } from '@/hooks/useFilter'
 import React from 'react'
 
 
 const ProductPage = () => {
-  const {finalFilteredProducts }= useFilterContext()
+  const {finalFilteredProducts }= useFilter()
 
   return (
     <>

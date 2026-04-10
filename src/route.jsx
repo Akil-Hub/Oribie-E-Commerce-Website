@@ -9,6 +9,8 @@ import SingleProduct from "@/components/common/SingleProduct";
 import CartPage from "@/pages/CartPage";
 import LoginPage from "@/pages/LoginPage";
 import SignUpPage from "@/pages/SignUpPage";
+import About from "@/pages/About";
+import Contact from "@/pages/Contact";
 
  
 
@@ -43,6 +45,16 @@ export const router = createBrowserRouter([
       {
         path: "signUp",
         element: <SignUpPage />,
+
+      },
+      {
+        path: "about",
+        element: <About />,
+
+      },
+      {
+        path: "contact",
+        element: <Contact />,
 
       },
       {

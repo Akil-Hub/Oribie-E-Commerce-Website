@@ -6,10 +6,10 @@ import "swiper/css";
 
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
 import SlideProductCard from "@/components/common/SlideProductCard";
-import { useDataContext } from "@/components/contexts/dataContext";
-const SpecialOffers = () => {
-  const {products} = useDataContext()
+import { useSelector } from "react-redux";
 
+const SpecialOffers = () => {
+ const products = useSelector((state)=>state.products.product)
   return (
     <>
       <section className="wrapper">

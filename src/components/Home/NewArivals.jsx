@@ -9,12 +9,12 @@ import "swiper/css";
 import {  FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
 import SlideProductCard from "@/components/common/SlideProductCard";
 import { useDataContext } from "@/components/contexts/dataContext";
+import { useSelector } from "react-redux";
 const NewArivals = () => {
 
-  const {products} = useDataContext()
-console.log(products)
+  const products = useSelector((state)=>state.products.product)
+
   const filteredProducts =products.filter(({price})=>price < 20)
-  console.log(filteredProducts)
   return (
     <>
     <section className='wrapper'>

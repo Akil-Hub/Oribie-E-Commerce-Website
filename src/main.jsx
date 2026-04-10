@@ -10,14 +10,9 @@ import { ToastContainer } from "react-toastify";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-   <Provider store={store}>
-     <DataProvider>
-      <FilterProvider>
+    <Provider store={store}>
         <App />
-                <ToastContainer />
-
-      </FilterProvider>
-    </DataProvider>
-   </Provider>
+        <ToastContainer />
+    </Provider>
   </StrictMode>,
 );

@@ -2,12 +2,11 @@ import Button from '@/components/common/Button'
 import { useFilterContext } from '@/components/contexts/filterContext'
 import Aside from '@/components/Shop/Aside'
 import ProductPage from '@/components/Shop/ProductPage'
-import { Hand } from 'lucide-react'
+import { setPriceRange, setQuery, setSelectedCategory } from '@/features/filter/filterSlice'
 
 
 const Shop = () => {
 
-  const {setQuery,setSelectedCategory,setPriceRange} = useFilterContext()
 const handleClick = (params) => {
   setQuery(null)
   setPriceRange(null)

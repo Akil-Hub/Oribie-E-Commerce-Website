@@ -5,10 +5,10 @@ import { Pagination, Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
-import { useDataContext } from "@/components/contexts/dataContext";
-const BestSellerProducts = () => {
-  const {products} = useDataContext()
+import { useSelector } from "react-redux";
 
+const BestSellerProducts = () => {
+ const products = useSelector((state)=>state.products.product)
   return (
     <>
       <section className="wrapper">

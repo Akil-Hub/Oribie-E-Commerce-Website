@@ -1,11 +1,21 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Button from "@/components/common/Button";
-import { useFilterContext } from "@/components/contexts/filterContext";
+
 import SlideProductCard from "@/components/common/SlideProductCard";
+import { useSelector } from "react-redux";
+import { useFilter } from "@/hooks/useFilter";
 const SaleSection = () => {
   const [saleData, setSaleData] = useState([]);
-  const { finalFilteredProducts, isCategorySelected,query,setQuery } = useFilterContext();
+
+  const isCategorySelected = useSelector(
+    (state) => state.filter.isCategorySelected,
+  );
+
+  const query = useSelector((state) => state.filter.query);
+
+  const { finalFilteredProducts } = useFilter();
+
   useEffect(() => {
     const getSaleData = async (params) => {
       const res = await axios.get("data1.json");

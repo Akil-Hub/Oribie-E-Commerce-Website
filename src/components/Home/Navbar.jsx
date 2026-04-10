@@ -6,22 +6,33 @@ import { FaCartArrowDown } from "react-icons/fa";
 import { HiBars3CenterLeft } from "react-icons/hi2";
 import { CiSearch } from "react-icons/ci";
 import Image from "@/components/common/Image";
-import { useFilterContext } from "@/components/contexts/filterContext";
+
+import { useDispatch, useSelector } from "react-redux";
+import { useFilter } from "@/hooks/useFilter";
+import {
+  setIsCategorySelected,
+  setQuery,
+  setSelectedCategory,
+} from "@/features/filter/filterSlice";
 
 const Navbar = () => {
- 
-  const { query,setSelectedCategory,selectedCategory, setQuery,finalFilteredProducts,categories,setIsCategorySelected } = useFilterContext();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const navigate = useNavigate()
+  // state from the redux store
+  const query = useSelector((state) => state.filter.query);
+
+  // this query value from the Usefilter Hook
+  const { categories } = useFilter();
 
   const handleInputChange = (e) => {
-    setQuery(e.target.value);
+    dispatch(setQuery(e.target.value));
   };
 
   const handleCategoryChange = (category) => {
-    setSelectedCategory(category)
-    setIsCategorySelected(true)
-    
+    dispatch(setSelectedCategory(category));
+
+    dispatch(setIsCategorySelected(true));
   };
   const navLinkClass = ({ isActive }) =>
     `hover:font-bold hover:text-gray-900 duration-300  active:scale-90 ${isActive ? "text-btn font-bold" : "text-primary"}`;
@@ -45,7 +56,7 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink className={navLinkClass} to={"/services"}>
+            <NavLink className={navLinkClass} to={"/about"}>
               About
             </NavLink>
           </li>
@@ -58,19 +69,18 @@ const Navbar = () => {
       </header>
       <section className="bg-secondary border-y-3 border-gray-200 ">
         <header className="wrapper flex justify-between items-center 0   ">
-       
           <button
             className="  "
             popoverTarget="category"
             style={{ anchorName: "--anchor-category" }}
           >
-          <div  className="flex gap-3 items-center">
+            <div className="flex gap-3 items-center">
               <HiBars3CenterLeft className="text-2xl" />
 
-            <Link className="" to={"/"}>
-              <h3>Shop by Category</h3>
-            </Link>
-          </div>
+              <Link className="" to={"/"}>
+                <h3>Shop by Category</h3>
+              </Link>
+            </div>
           </button>
 
           <ul
@@ -78,10 +88,19 @@ const Navbar = () => {
             popover="auto"
             id="category"
             style={
-              { positionAnchor: "--anchor-category" } /* as React.CSSProperties */
+              {
+                positionAnchor: "--anchor-category",
+              } /* as React.CSSProperties */
             }
           >
-            {categories.map(c=><li  onClick={() => handleCategoryChange(c)} className="py-1 text-lg uppercase cursor-pointer">{c}</li>)}
+            {categories.map((c) => (
+              <li
+                onClick={() => handleCategoryChange(c)}
+                className="py-1 text-lg uppercase cursor-pointer"
+              >
+                {c}
+              </li>
+            ))}
           </ul>
 
           <div className="flex justify-between items-center px-3 py-2 bg-white rounded-md w-120">
@@ -95,28 +114,41 @@ const Navbar = () => {
           </div>
 
           <div className="flex gap-5 items-center">
-              <button
-            className="  "
-            popoverTarget="account"
-            style={{ anchorName: "--anchor-account" }}
-          >
-
-            <MdPeopleAlt className="text-2xl" />
-          </button>
-            <FaCartArrowDown onClick={()=>navigate('cart')} className="text-2xl cursor-pointer active:scale-90 duration-300!" />
+            <button
+              className="  "
+              popoverTarget="account"
+              style={{ anchorName: "--anchor-account" }}
+            >
+              <MdPeopleAlt className="text-2xl" />
+            </button>
+            <FaCartArrowDown
+              onClick={() => navigate("cart")}
+              className="text-2xl cursor-pointer active:scale-90 duration-300!"
+            />
           </div>
-           <ul
+          <ul
             className="dropdown  pt-10 menu w-52 rounded-box bg-btn text-white shadow-sm"
             popover="auto"
             id="account"
             style={
-              { positionAnchor: "--anchor-account" } /* as React.CSSProperties */
+              {
+                positionAnchor: "--anchor-account",
+              } /* as React.CSSProperties */
             }
           >
-            <li onClick={()=>navigate('/signUp')} className="py-2 text-xl font-semibold cursor-pointer active:scale-90 duration-300 ">Sign Up</li>
-            <li onClick={()=>navigate('/login')}  className="py-2 text-xl font-semibold  cursor-pointer active:scale-90 duration-300">Sign In </li>
+            <li
+              onClick={() => navigate("/signUp")}
+              className="py-2 text-xl font-semibold cursor-pointer active:scale-90 duration-300 "
+            >
+              Sign Up
+            </li>
+            <li
+              onClick={() => navigate("/login")}
+              className="py-2 text-xl font-semibold  cursor-pointer active:scale-90 duration-300"
+            >
+              Sign In{" "}
+            </li>
           </ul>
-
         </header>
       </section>
     </nav>
