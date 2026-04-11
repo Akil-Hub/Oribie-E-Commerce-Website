@@ -9,14 +9,14 @@ import Image from "@/components/common/Image";
 import { useDispatch, useSelector } from "react-redux";
 import { useFilter } from "@/hooks/useFilter";
 import { setIsCategorySelected, setQuery, setSelectedCategory } from "@/features/filter/filterSlice";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const query = useSelector((state) => state.filter.query);
   const { categories } = useFilter();
-
+ const categoryPopoverRef  = useRef(null)
   // ✅ mobile menu open/close
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -25,6 +25,7 @@ const Navbar = () => {
   const handleCategoryChange = (category) => {
     dispatch(setSelectedCategory(category));
     dispatch(setIsCategorySelected(true));
+    categoryPopoverRef.current.hidePopover()
   };
 
   const navLinkClass = ({ isActive }) =>
@@ -105,9 +106,10 @@ const Navbar = () => {
             className="dropdown pt-10 menu w-52 rounded-box bg-btn text-white shadow-sm"
             popover="auto"
             id="category"
+            ref={categoryPopoverRef}
             style={{ positionAnchor: "--anchor-category" }}
           >
-            {categories.map((c, idx) => (
+            {categories.slice(0,8).map((c, idx) => (
               <li key={idx} onClick={() => handleCategoryChange(c)} className="py-1 text-lg uppercase cursor-pointer">
                 {c}
               </li>
