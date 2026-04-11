@@ -93,8 +93,8 @@ const Navbar = () => {
               } /* as React.CSSProperties */
             }
           >
-            {categories.map((c) => (
-              <li
+            {categories.map((c,idx) => (
+              <li key={idx}
                 onClick={() => handleCategoryChange(c)}
                 className="py-1 text-lg uppercase cursor-pointer"
               >

@@ -9,6 +9,7 @@ export const filterSlice = createSlice({
     isCategorySelected: false,
     selectedCategory: null,
     priceRange: null,
+    itemsPerPage:12,
   },
   reducers: {
     setQuery: (state, action) => {

@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { useSelector } from "react-redux";
 
 export const useFilter = () => {
@@ -11,35 +12,42 @@ export const useFilter = () => {
     (state) => state.filter.isCategorySelected,
   );
 
-  let finalFilteredProducts = products;
+  const finalFilteredProducts = useMemo(() => {
+    let result = products;
 
-  if (query) {
-    finalFilteredProducts = finalFilteredProducts.filter((product) =>
-      product.title.toLowerCase().trim().includes(query.toLowerCase().trim()),
-    );
-  }
+    if (query) {
+      result = result.filter((product) =>
+        product.title.toLowerCase().trim().includes(query.toLowerCase().trim()),
+      );
+    }
+    if (selectedCategory) {
+      result = result.filter(
+        ({ category, brand }) =>
+          category === selectedCategory || brand === selectedCategory,
+      );
+    }
+    if (priceRange) {
+      result = result.filter(
+        ({ price }) => price > priceRange.min && price <= priceRange.max,
+      );
+    }
+    return result;
+  }, [products, query, selectedCategory, priceRange]);
 
-  if (selectedCategory) {
-    finalFilteredProducts = finalFilteredProducts.filter(
-      ({ category, brand }) =>
-        category === selectedCategory || brand === selectedCategory,
-    );
-  }
-
-  if (priceRange) {
-    finalFilteredProducts = finalFilteredProducts.filter(
-      ({ price }) => price > priceRange.min && price <= priceRange.max,
-    );
-  }
-
-  const categories = [...new Set(products.map((p) => p.category))];
-  const brands = [...new Set(products.map((p) => p.brand))];
-
+  const categories = useMemo(
+    () => [...new Set(products.map((p) => p.category))],
+    [products],
+  );
+  const brands = useMemo(
+    () => [...new Set(products.map((p) => p.brand))],
+    [products],
+  );
   return {
     finalFilteredProducts,
     categories,
     brands,
     query,
     isCategorySelected,
+    isLoading:products.length === 0,
   };
 };
