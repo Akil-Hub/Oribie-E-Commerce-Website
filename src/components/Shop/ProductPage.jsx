@@ -18,9 +18,9 @@ const ProductPage = () => {
   return (
     <>
      
-   <section className=" w-4/5 ">
+   <section className=" w-full lg:w-4/5 ">
         
-      <article className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full items-center justify-items-stretch py-10 '>
+      <article className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full justify-items-center py-10 mx-auto px-4 md:px-0  '>
 
         {
           paginatedProducts.map((product )=>{
