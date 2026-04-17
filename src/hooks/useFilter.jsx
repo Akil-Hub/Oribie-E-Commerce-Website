@@ -16,7 +16,7 @@ export const useFilter = () => {
     let result = products;
 
     if (query) {
-      result = result.filter((product) =>
+      return result.filter((product) =>
         product.title.toLowerCase().trim().includes(query.toLowerCase().trim()),
       );
     }

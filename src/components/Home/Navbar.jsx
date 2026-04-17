@@ -8,24 +8,28 @@ import { HiMenu, HiX } from "react-icons/hi";
 import Image from "@/components/common/Image";
 import { useDispatch, useSelector } from "react-redux";
 import { useFilter } from "@/hooks/useFilter";
-import { setIsCategorySelected, setQuery, setSelectedCategory } from "@/features/filter/filterSlice";
+import { setIsCategorySelected, setQuery, setSearchInput, setSelectedCategory } from "@/features/filter/filterSlice";
 import { useRef, useState } from "react";
 
 const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const query = useSelector((state) => state.filter.query);
+
   const { categories } = useFilter();
  const categoryPopoverRef  = useRef(null)
-  // ✅ mobile menu open/close
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const handleInputChange = (e) => dispatch(setQuery(e.target.value));
+  const searchInput = useSelector(state=>state.filter.searchInput)
+ 
 
   const handleCategoryChange = (category) => {
     dispatch(setSelectedCategory(category));
     dispatch(setIsCategorySelected(true));
     categoryPopoverRef.current.hidePopover()
+  };
+
+  const handleSearchClick = () => {
+    dispatch(setQuery(searchInput))
   };
 
   const navLinkClass = ({ isActive }) =>
@@ -121,10 +125,10 @@ const Navbar = () => {
             <input
               className="px-3 py-1 focus:outline-none w-full"
               placeholder="Search For Products..."
-              value={query}
-              onChange={handleInputChange}
+              value={searchInput}
+              onChange={(e)=>dispatch(setSearchInput(e.target.value))}
             />
-            <CiSearch className="text-3xl" />
+            <CiSearch className="text-3xl" onClick={handleSearchClick} />
           </div>
 
         </header>

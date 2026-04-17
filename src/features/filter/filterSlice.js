@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { useSelector } from "react-redux";
 
 
 export const filterSlice = createSlice({
@@ -10,6 +9,7 @@ export const filterSlice = createSlice({
     selectedCategory: null,
     priceRange: null,
     itemsPerPage:12,
+    searchInput:''
   },
   reducers: {
     setQuery: (state, action) => {
@@ -24,6 +24,9 @@ export const filterSlice = createSlice({
     setIsCategorySelected: (state, action) => {
       state.isCategorySelected = action.payload;
     },
+    setSearchInput: (state, action) => {
+      state.searchInput = action.payload;
+    },
   },
 });
 
@@ -32,5 +35,6 @@ export const {
   setSelectedCategory,
   setIsCategorySelected,
   setPriceRange,
+  setSearchInput
 } = filterSlice.actions;
 export default filterSlice.reducer;

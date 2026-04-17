@@ -1,4 +1,9 @@
-import { setPriceRange, setSelectedCategory } from "@/features/filter/filterSlice";
+import {
+  setPriceRange,
+  setQuery,
+  setSearchInput,
+  setSelectedCategory,
+} from "@/features/filter/filterSlice";
 import { useFilter } from "@/hooks/useFilter";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,7 +13,9 @@ import { HiAdjustments } from "react-icons/hi";
 const Aside = () => {
   const dispatch = useDispatch();
   const { categories, brands } = useFilter();
-  const selectedCategory = useSelector((state) => state.filter.selectedCategory);
+  const selectedCategory = useSelector(
+    (state) => state.filter.selectedCategory,
+  );
   const priceRange = useSelector((state) => state.filter.priceRange);
 
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
@@ -17,8 +24,13 @@ const Aside = () => {
   const [isAsideOpen, setIsAsideOpen] = useState(false);
 
   const handleCategoryChange = (category) => {
-    dispatch(setSelectedCategory(selectedCategory === category ? null : category));
+    dispatch(
+      setSelectedCategory(selectedCategory === category ? null : category),
+    );
+    dispatch(setQuery(""));
+    setSearchInput("");
     setIsCategoryOpen(false);
+
   };
 
   const handleBrandChange = (brand) => {
@@ -41,7 +53,6 @@ const Aside = () => {
 
   const filterContent = (
     <div className="flex flex-col gap-6">
-
       {/* Category */}
       <div className="flex flex-col space-y-2">
         <h4 className="text-btn font-semibold text-xl">Shop by Category</h4>
@@ -49,8 +60,16 @@ const Aside = () => {
           onClick={() => setIsCategoryOpen(!isCategoryOpen)}
           className="flex justify-between items-center w-full px-4 py-2 border rounded-lg hover:bg-gray-100 duration-300"
         >
-          <span className={selectedCategory && categories.includes(selectedCategory) ? "text-btn font-semibold" : "text-btn"}>
-            {selectedCategory && categories.includes(selectedCategory) ? selectedCategory : "Select Category"}
+          <span
+            className={
+              selectedCategory && categories.includes(selectedCategory)
+                ? "text-btn font-semibold"
+                : "text-btn"
+            }
+          >
+            {selectedCategory && categories.includes(selectedCategory)
+              ? selectedCategory
+              : "Select Category"}
           </span>
           {isCategoryOpen ? <FaChevronUp /> : <FaChevronDown />}
         </button>
@@ -76,8 +95,16 @@ const Aside = () => {
           onClick={() => setIsBrandOpen(!isBrandOpen)}
           className="flex justify-between items-center w-full px-4 py-2 border rounded-lg hover:bg-gray-100 duration-300"
         >
-          <span className={selectedCategory && brands.includes(selectedCategory) ? "text-btn font-semibold" : "text-btn"}>
-            {selectedCategory && brands.includes(selectedCategory) ? selectedCategory : "Select Brand"}
+          <span
+            className={
+              selectedCategory && brands.includes(selectedCategory)
+                ? "text-btn font-semibold"
+                : "text-btn"
+            }
+          >
+            {selectedCategory && brands.includes(selectedCategory)
+              ? selectedCategory
+              : "Select Brand"}
           </span>
           {isBrandOpen ? <FaChevronUp /> : <FaChevronDown />}
         </button>
@@ -132,12 +159,20 @@ const Aside = () => {
       {isAsideOpen && (
         <div className="lg:hidden fixed inset-0 z-50 flex">
           {/* backdrop */}
-          <div className="flex-1 bg-black/50" onClick={() => setIsAsideOpen(false)} />
+          <div
+            className="flex-1 bg-black/50"
+            onClick={() => setIsAsideOpen(false)}
+          />
           {/* sidebar */}
           <div className="w-72 bg-white h-full overflow-y-auto p-6 shadow-xl">
             <div className="flex justify-between items-center mb-6">
               <h3 className="text-xl font-bold">Filters</h3>
-              <button onClick={() => setIsAsideOpen(false)} className="text-2xl">✕</button>
+              <button
+                onClick={() => setIsAsideOpen(false)}
+                className="text-2xl"
+              >
+                ✕
+              </button>
             </div>
             {filterContent}
           </div>
